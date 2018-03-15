@@ -56,3 +56,9 @@ shopt -s histappend
 
 # Add the current folder in the PATH.
 export PATH="${PATH}:.";
+
+# Emulate Linux ls colors on macos
+if [[ $(uname -s) == Darwin* ]]; then
+  export CLICOLOR=1
+  export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+fi
