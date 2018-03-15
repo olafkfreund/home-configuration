@@ -34,7 +34,7 @@ color_cyan='\033[0;36m'
 color_white='\033[0;37m'
 
 # Define PS1
-export PS1="\\[$colgrn\\][\\[$colyel\\]\u\\[$colgrn\\]@\\[$colpur\\]\h\\[$colgrn\\]:\\[$colblu\\]\w\\[$colgrn\\]]\\[$colrst\\] \\[$colgrn\\]\$(get_git_current_branch)\\[$colrst\\]\n : "
+export PS1="\\[$colgrn\\][\\[$colyel\\]\u\\[$colgrn\\]@\\[$colpur\\]\h\\[$colgrn\\]:\\[$colblu\\]\w\\[$colgrn\\]]\\[$colrst\\] \\[$colgrn\\]\$(get_git_current_branch)\\[$colrst\\]\n $ "
 
 # Auto correct cd command line
 shopt -s cdspell
