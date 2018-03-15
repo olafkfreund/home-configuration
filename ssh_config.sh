@@ -42,6 +42,6 @@ else
 fi
 
 ## Fetch hostname from sshconfig and create an alias to connect to them
-for name in $(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/'); do
+for name in $(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/' | tr ' ' '\n'); do
 	eval alias "$name=\"ssh $name\""
 done
