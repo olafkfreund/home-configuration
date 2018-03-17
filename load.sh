@@ -2,7 +2,8 @@
 
 FOLDER=$(dirname "$BASH_SOURCE")
 
-source "$FOLDER/functions.sh"
+source "$FOLDER/git/git.sh"
+source "$FOLDER/ssh/ssh.sh"
+
 source "$FOLDER/aliases.sh"
 source "$FOLDER/variables.sh"
-source "$FOLDER/ssh_config.sh"
