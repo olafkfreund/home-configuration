@@ -16,10 +16,23 @@ set_background_color_macos () {
 }
 
 HOSTNAME=$(echo $@ | sed s/.*@//)
+CONFIG_FILE="$HOME/.config/alias/ssh-colorized.csv"
 
-case $HOSTNAME in
-  *) set_background_color_macos 0 20 0
-esac
+if [ -f "$CONFIG_FILE" ]; then
+  # Format : regexp_pattern,red,green,blue
+  for line in $(cat $CONFIG_FILE | grep -v "^#"); do
+    PATTERN=$(echo $line | cut -d',' -f 1)
+
+    if [[ $HOSTNAME =~ $PATTERN ]]; then
+      RED=$(echo $line | cut -d',' -f 2 | sed 's/ \t//g')
+      GREEN=$(echo $line | cut -d',' -f 3 | sed 's/ \t//g')
+      BLUE=$(echo $line | cut -d',' -f 4 | sed 's/ \t//g')
+
+      set_background_color_macos "$RED" "$GREEN" "$BLUE"
+      break;
+    fi
+  done
+fi
 
 ssh $@
 
