@@ -40,6 +40,8 @@ alias tf="tail -f"
 
 # SSH aliases
 
+alias ssh-colorized="$ALIAS_FOLDER/ssh/ssh-colorized.sh"
+
 ## Fetch hostname from sshconfig and create an alias to connect to them
 if [ -f ~/.ssh/config ]; then
   for name in $(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/' | tr ' ' '\n'); do

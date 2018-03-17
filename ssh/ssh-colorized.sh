@@ -15,15 +15,12 @@ set_background_color_macos () {
   osascript -e "tell application \"Terminal\" to set background color of selected tab of window 1 to {$RED, $GREEN, $BLUE, $ALPHA}"
 }
 
-# A custom ssh use to update the background color when on another server.
-ssh-colorized() {
-  HOSTNAME=`echo $@ | sed s/.*@//`
+HOSTNAME=$(echo $@ | sed s/.*@//)
 
-  case $HOSTNAME in
-    *) set_background_color_macos 0 20 0
-  esac
+case $HOSTNAME in
+  *) set_background_color_macos 0 20 0
+esac
 
-  ssh $HOSTNAME
+ssh $@
 
-  reset_background_color_macos
-}
+reset_background_color_macos

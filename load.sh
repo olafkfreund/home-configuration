@@ -1,11 +1,10 @@
 #!/bin/sh
 
-FOLDER=$(dirname "$BASH_SOURCE")
+ALIAS_FOLDER="$HOME/.home-aliases/"
 
-source "$FOLDER/git/git.sh"
+source "$ALIAS_FOLDER/git/git.sh"
 
-source "$FOLDER/ssh/ssh.sh"
-source "$FOLDER/ssh/start-agent.sh"
+source "$ALIAS_FOLDER/ssh/start-agent.sh"
 
-source "$FOLDER/aliases.sh"
-source "$FOLDER/variables.sh"
+source "$ALIAS_FOLDER/aliases.sh"
+source "$ALIAS_FOLDER/variables.sh"
