@@ -1,6 +1,7 @@
 [user]
     name = Florent Clarret
     email = florent.clarret@gmail.com
+
 [core]
     autocrlf = input
 
@@ -13,3 +14,8 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     di = diff
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
