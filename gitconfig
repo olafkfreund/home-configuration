@@ -15,6 +15,9 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     di = diff
+    changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
 
 [color]
     diff = auto
