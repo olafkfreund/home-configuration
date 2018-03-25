@@ -3,3 +3,13 @@
     email = florent.clarret@gmail.com
 [core]
     autocrlf = input
+
+[alias]
+    st = status
+    ci = commit
+    ca = commit --amend
+    ch = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    di = diff
