@@ -32,7 +32,7 @@
     autosetuprebase = always
 
 [push]
-	default = matching
+    default = matching
 
 [web]
-	browser = vivaldi
+    browser = vivaldi
