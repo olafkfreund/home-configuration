@@ -25,7 +25,8 @@ pull() {
 deploy() {
   echo "Deploying configuration files to home directory.."
   cp gitconfig ~/.gitconfig
-  cp gitignore ~/.gitignore
+  mkdir -p ~/.config/git/
+  cp gitignore ~/.config/git/gitignore
   echo "Installed the git configuration successfully! Have fun"
 }
 

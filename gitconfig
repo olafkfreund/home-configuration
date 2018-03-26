@@ -7,7 +7,7 @@
     editor = vim
     tool = vimdiff
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/gitignore
 
 [alias]
     st = status
