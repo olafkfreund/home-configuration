@@ -49,11 +49,15 @@ if [ "$PULL" == "YES" ]; then
   pull
 fi
 
-if [[ -f ~/.gitconfig && "$REPLACE" == "NO" ]]; then
+if [[ ( -f ~/.gitconfig || -f ~/.config/git/gitignore ) && "$REPLACE" == "NO" ]]; then
   echo "ERROR : The configuration file already exists. Use -r to replace it."
 else
   if [ -f ~/.gitconfig ]; then
     echo "WARN : A gitconfig file already exists. It will be replaced."
+  fi
+
+  if [ -f ~/.config/git/gitignore ]; then
+    echo "WARN : A gitignore file already exists. It will be replaced."
   fi
   deploy
 fi
