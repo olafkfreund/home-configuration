@@ -22,6 +22,7 @@
     changes = diff --name-status
     dic = diff --cached
     diffstat = diff --stat
+    pr = pull --rebase
 
 [color]
     diff = auto
