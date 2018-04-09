@@ -1,0 +1,39 @@
+[user]
+    name = Florent Clarret
+    email = florent.clarret@gmail.com
+
+[core]
+    autocrlf = input
+    editor = vim
+    tool = vimdiff
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.config/git/gitignore
+
+[alias]
+    st = status
+    ci = commit
+    ca = commit --amend
+    ch = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    qlog = log --pretty=oneline --abbrev-commit --graph --decorate
+    di = diff
+    changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
+    pr = pull --rebase
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[branch]  
+    autosetuprebase = always
+
+[push]
+    default = matching
+
+[web]
+    browser = vivaldi
