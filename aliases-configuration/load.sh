@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ALIAS_FOLDER="$HOME/.home-aliases/"
+ALIAS_FOLDER="$HOME/.aliases/"
 
 source "$ALIAS_FOLDER/git/git.sh"
 
