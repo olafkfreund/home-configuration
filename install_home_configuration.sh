@@ -15,7 +15,7 @@ usage() {
 echo "Deploy aliases..."
 rm -rf ~/.aliases
 mkdir -p ~/.aliases
-cp -R aliases-configuration ~/.aliases/
+cp -R aliases-configuration/* ~/.aliases/
 echo "Aliases deployed."
 
 echo "Deploy gitconfig..."
