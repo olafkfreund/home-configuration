@@ -23,6 +23,8 @@
     dic = diff --cached
     diffstat = diff --stat
     pr = pull --rebase
+    rb = rebase
+    pushf = push --force
 
 [color]
     diff = auto
