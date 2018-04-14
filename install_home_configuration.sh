@@ -2,10 +2,8 @@
 
 set -e
 
-SELF=$(basename "$0")
-
 usage() {
-  echo "$SELF: "
+  echo "./install_home_configuration.sh: "
   echo "\tDeploy the configuration files to the home directly."
   echo "Parameters: "
   echo "\t-A : Deploy everything (default mode)"
@@ -13,7 +11,7 @@ usage() {
   echo "\t-g : Deploy git configuration files"
   echo "\t-v : Deploy vim configuration files"
   echo "\t-m : Deploy MC configuration"
-  echo "\t-r : Reload the aliases after the deployment"
+  echo "\t-r : Reload the aliases after the deployment (if sourced)"
   echo "\t-h : Show this usage"
 }
 
