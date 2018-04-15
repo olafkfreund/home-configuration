@@ -22,15 +22,17 @@ INSTALL_GIT="NO"
 INSTALL_ALIASES="NO"
 INSTALL_MC="NO"
 INSTALL_VIM="NO"
+INSTALL_SCREEN="NO"
 RELOAD="NO"
 
-while getopts "Agvamhr" option; do
+while getopts "Agvamhrs" option; do
   case $option in
     A) INSTALL_ALL="YES";;
     a) INSTALL_ALL="NO"; INSTALL_ALIASES="YES";;
     m) INSTALL_ALL="NO"; INSTALL_MC="YES";;
     v) INSTALL_ALL="NO"; INSTALL_VIM="YES";;
     g) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
+    s) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
     r) RELOAD="YES";;
     h) usage; exit 0;;
     *) usage; exit 1;;
@@ -74,4 +76,12 @@ if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_VIM == "YES" ]; then
   echo "Vim configuration deployed."
 fi
 
+if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_SCREEN == "YES" ]; then
+  echo "Deploy screenrc..."
+  cp screen-configuration/screenrc ~/.screenrc
+  echo "screenrc deployed."
+fi
+
 echo "Have fun !"
+
+set +e
