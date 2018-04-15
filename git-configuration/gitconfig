@@ -25,6 +25,7 @@
     pr = pull --rebase
     rb = rebase
     pushf = push --force
+    pl = pull
 
 [color]
     diff = auto
