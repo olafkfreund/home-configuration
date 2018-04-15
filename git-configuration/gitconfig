@@ -10,22 +10,32 @@
     excludesfile = ~/.config/git/gitignore
 
 [alias]
+    i = init
+    c = clone
+
     st = status
+
     ci = commit
     ca = commit --amend
+    
     ch = checkout
     br = branch
+    mr = merge
+    pl = pull
+    pr = pull --rebase
+    rb = rebase
+    ps = push
+    pf = push --force
+    
     unstage = reset HEAD --
+    
     last = log -1 HEAD
     qlog = log --pretty=oneline --abbrev-commit --graph --decorate
+    
     di = diff
     changes = diff --name-status
     dic = diff --cached
     diffstat = diff --stat
-    pr = pull --rebase
-    rb = rebase
-    pushf = push --force
-    pl = pull
 
 [color]
     diff = auto
