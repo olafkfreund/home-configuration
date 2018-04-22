@@ -16,6 +16,7 @@
     st = status
 
     ci = commit
+    cim = commit -m
     ca = commit --amend
     
     ch = checkout
