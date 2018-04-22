@@ -36,6 +36,10 @@
     changes = diff --name-status
     dic = diff --cached
     diffstat = diff --stat
+    
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
 
 [color]
     diff = auto
