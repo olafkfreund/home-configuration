@@ -8,3 +8,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Intellij idea files
+*.iml
+.idea
