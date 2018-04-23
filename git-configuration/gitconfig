@@ -42,6 +42,8 @@
     
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
+    # list ignored files
+    li = ls-files --other --ignored --exclude-standard
 
     rmc = rm --cached
 
