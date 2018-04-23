@@ -43,6 +43,7 @@
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
 
+    rmc = rm --cached
 
 [color]
     diff = auto
