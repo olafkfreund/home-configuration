@@ -47,6 +47,10 @@
 
     rmc = rm --cached
 
+    st = stash
+    stp = stash pop
+    stl = stash list
+
 [color]
     diff = auto
     status = auto
