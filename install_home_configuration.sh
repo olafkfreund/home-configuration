@@ -11,6 +11,7 @@ usage() {
   echo "\t-g : Deploy git configuration files"
   echo "\t-v : Deploy vim configuration files"
   echo "\t-m : Deploy MC configuration"
+  echo "\t-s : Deploy screen configuration"
   echo "\t-r : Reload the aliases after the deployment (if sourced)"
   echo "\t-h : Show this usage"
 }
