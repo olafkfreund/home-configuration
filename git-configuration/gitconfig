@@ -47,9 +47,9 @@
 
     rmc = rm --cached
 
-    st = stash
-    stp = stash pop
-    stl = stash list
+    sa = stash
+    sap = stash pop
+    sal = stash list
 
 [color]
     diff = auto
