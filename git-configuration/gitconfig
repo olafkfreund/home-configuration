@@ -29,7 +29,8 @@
     pr = pull --rebase
     rb = rebase
     ps = push
-    
+    ft = fetch
+
     unstage = reset HEAD --
     
     last = log -1 HEAD
