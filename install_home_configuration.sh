@@ -12,6 +12,7 @@ usage() {
   echo "\t-v : Deploy vim configuration files"
   echo "\t-m : Deploy MC configuration"
   echo "\t-s : Deploy screen configuration"
+  echo "\t-l : Deploy less configuration"
   echo "\t-r : Reload the aliases after the deployment (if sourced)"
   echo "\t-h : Show this usage"
 }
@@ -24,9 +25,10 @@ INSTALL_ALIASES="NO"
 INSTALL_MC="NO"
 INSTALL_VIM="NO"
 INSTALL_SCREEN="NO"
+INSTALL_LESS="NO"
 RELOAD="NO"
 
-while getopts "Agvamhrs" option; do
+while getopts "Agvamhrsl" option; do
   case $option in
     A) INSTALL_ALL="YES";;
     a) INSTALL_ALL="NO"; INSTALL_ALIASES="YES";;
@@ -34,6 +36,7 @@ while getopts "Agvamhrs" option; do
     v) INSTALL_ALL="NO"; INSTALL_VIM="YES";;
     g) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
     s) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
+    l) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
     r) RELOAD="YES";;
     h) usage; exit 0;;
     *) usage; exit 1;;
@@ -81,6 +84,12 @@ if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_SCREEN == "YES" ]; then
   echo "Deploy screenrc..."
   cp screen-configuration/screenrc ~/.screenrc
   echo "screenrc deployed."
+fi
+
+if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_LESS == "YES" ]; then
+  echo "Deploy less config..."
+  cp less-configuration/lesskey ~/.lesskey
+  echo "less config deployed."
 fi
 
 echo "Have fun !"
