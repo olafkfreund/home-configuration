@@ -38,6 +38,9 @@ alias src='source'
 # tail
 alias tf="tail -f"
 
+# reload aliases
+alias reload="source ~/.aliases/load.sh"
+
 # SSH aliases
 
 alias ssh-colorized="$ALIAS_FOLDER/ssh/ssh-colorized.sh"
