@@ -40,3 +40,5 @@ if [[ $(uname -s) == Darwin* ]]; then
   export CLICOLOR=1
   export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 fi
+
+export LANG=en_EN.UTF-8 mc
