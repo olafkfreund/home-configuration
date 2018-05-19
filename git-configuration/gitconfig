@@ -64,4 +64,4 @@
     default = matching
 
 [web]
-    browser = vivaldi
+    browser = firefox
