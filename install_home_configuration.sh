@@ -39,7 +39,7 @@ while getopts "Agvamhrsli" option; do
     g) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
     s) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
     l) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
-    l) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
+    i) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
     r) RELOAD="YES";;
     h) usage; exit 0;;
     *) usage; exit 1;;
@@ -95,7 +95,7 @@ if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_LESS == "YES" ]; then
   echo "less config deployed."
 fi
 
-if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_LESS == "YES" ]; then
+if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_IDEA == "YES" ]; then
   echo "Deploy idea config..."
   mkdir -p ~/.config/idea
   cp idea-configuration/* ~/.config/idea/
