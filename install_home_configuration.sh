@@ -13,6 +13,7 @@ usage() {
   echo "\t-m : Deploy MC configuration"
   echo "\t-s : Deploy screen configuration"
   echo "\t-l : Deploy less configuration"
+  echo "\t-i : Deploy idea configuration"
   echo "\t-r : Reload the aliases after the deployment (if sourced)"
   echo "\t-h : Show this usage"
 }
@@ -26,9 +27,10 @@ INSTALL_MC="NO"
 INSTALL_VIM="NO"
 INSTALL_SCREEN="NO"
 INSTALL_LESS="NO"
+INSTALL_IDEA="NO"
 RELOAD="NO"
 
-while getopts "Agvamhrsl" option; do
+while getopts "Agvamhrsli" option; do
   case $option in
     A) INSTALL_ALL="YES";;
     a) INSTALL_ALL="NO"; INSTALL_ALIASES="YES";;
@@ -37,6 +39,7 @@ while getopts "Agvamhrsl" option; do
     g) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
     s) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
     l) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
+    l) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
     r) RELOAD="YES";;
     h) usage; exit 0;;
     *) usage; exit 1;;
@@ -90,6 +93,13 @@ if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_LESS == "YES" ]; then
   echo "Deploy less config..."
   cp less-configuration/lesskey ~/.lesskey
   echo "less config deployed."
+fi
+
+if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_LESS == "YES" ]; then
+  echo "Deploy idea config..."
+  mkdir -p ~/.config/idea
+  cp idea-configuration/* ~/.config/idea/
+  echo "idea config deployed."
 fi
 
 echo "Have fun !"
