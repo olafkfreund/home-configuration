@@ -65,3 +65,6 @@
 
 [web]
     browser = vivaldi
+
+[url "git@github.com:FlorentClarret/"]
+    insteadOf = FlorentClarret:
