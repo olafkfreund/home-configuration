@@ -1,0 +1,11 @@
+#!/bin/bash
+# 
+# Ensure the branch names are compliant with the gitflow
+
+CURRENT_BRANCH=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+REGEXP_PATTERN="^(master|develop|(hotfix|release|feature)\/.+)$";
+
+if [[ ! "$CURRENT_BRANCH" =~ $REGEXP_PATTERN ]]; then
+	echo "Your branch name does not respect the following pattern : $REGEXP_PATTERN";
+	exit 1;
+fi
