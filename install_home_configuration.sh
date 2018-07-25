@@ -62,9 +62,10 @@ fi
 
 if [ $INSTALL_ALL == "YES" ] || [ $INSTALL_GIT == "YES" ]; then
   echo "Deploy gitconfig..."
+  rm -rf ~/.config/git/
   mkdir -p ~/.config/git/hooks
   cp git-configuration/gitignore ~/.config/git/gitignore
-  cp git-configuration/hooks/* ~/.config/git/hooks/
+  cp -R git-configuration/hooks/* ~/.config/git/hooks/
   cp git-configuration/gitconfig ~/.gitconfig
   echo "Gitconfig deployed."
 fi
