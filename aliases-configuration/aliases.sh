@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# One alias to use them all
+alias sudo='sudo '
+# Seems useless? If the last character of the alias value is a blank, then the next command word following the alias is also checked for alias expansion.
+# You're welcome.
+
 # ls
 alias ll="ls -alh";
 alias lm="ls -altrh";
@@ -38,16 +43,26 @@ alias src='source'
 # tail
 alias tf="tail -f"
 
+# Make them verbose
+alias mv="mv -v"
+alias rm="rm -vi"
+alias cp="cp -v"
+
+# clear
+alias cl="clear"
+
 # reload aliases
 alias reload="source ~/.aliases/load.sh"
 
-# SSH aliases
-
-alias ssh-colorized="$ALIAS_FOLDER/ssh/ssh-colorized.sh"
+# ssh
+alias sshconfig="${EDITOR:-vim} ~/.ssh/config"
 
 ## Fetch hostname from sshconfig and create an alias to connect to them
 if [ -f ~/.ssh/config ]; then
   for name in $(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/' | tr ' ' '\n'); do
-  	eval alias "$name=\"ssh-colorized $name\""
+  	eval alias "$name=\"ssh $name\""
   done
 fi
+
+# miscellaneous
+alias ip="curl ifconfig.me"
