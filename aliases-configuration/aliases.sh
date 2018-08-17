@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # One alias to use them all
-alias sudo='sudo '
+alias sudoa='sudo '
 # Seems useless? If the last character of the alias value is a blank, then the next command word following the alias is also checked for alias expansion.
 # You're welcome.
 
