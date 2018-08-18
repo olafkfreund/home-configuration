@@ -69,7 +69,7 @@ if [[ -e ~/.ssh/known_hosts ]]; then
   complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
 fi
 
-# tar 
+# tar
 alias untar='tar -xvf'
 
 # docker
@@ -88,5 +88,5 @@ alias dkex="docker exec -i -t"
 alias dkrmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # miscellaneous
-alias ip="curl ifconfig.me"
+alias myip="curl ifconfig.me"
 alias randpass="openssl rand -base64 24"
