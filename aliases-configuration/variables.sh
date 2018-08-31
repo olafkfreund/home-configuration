@@ -41,4 +41,4 @@ if [[ $(uname -s) == Darwin* ]]; then
   export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 fi
 
-export LANG=en_EN.UTF-8 mc
+export LANG=fr_FR.UTF-8
