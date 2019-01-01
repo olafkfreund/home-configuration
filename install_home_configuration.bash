@@ -100,7 +100,7 @@ fi
 if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_IDEA} == "YES" ]]; then
   echo "Deploy idea config..."
   mkdir -p ~/.config/idea
-  cp idea-configuration/* ~/.config/idea/
+  cp -R idea-configuration/* ~/.config/idea/
   echo "idea config deployed."
 fi
 
