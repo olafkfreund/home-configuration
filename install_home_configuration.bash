@@ -6,16 +6,16 @@ usage() {
   echo "./install_home_configuration.sh: "
   echo "\tDeploy the configuration files to the home directly."
   echo "Parameters: "
-  echo "\t-A : Deploy everything (default mode)"
-  echo "\t-a : Deploy aliases configuration files"
-  echo "\t-g : Deploy git configuration files"
-  echo "\t-v : Deploy vim configuration files"
-  echo "\t-m : Deploy MC configuration"
-  echo "\t-s : Deploy screen configuration"
-  echo "\t-l : Deploy less configuration"
-  echo "\t-i : Deploy idea configuration"
-  echo "\t-r : Reload the aliases after the deployment (if sourced)"
-  echo "\t-h : Show this usage"
+  echo "\t-A|--all : Deploy everything (default mode)"
+  echo "\t-a|--alias : Deploy aliases configuration files"
+  echo "\t-g|--git : Deploy git configuration files"
+  echo "\t-v|--vim : Deploy vim configuration files"
+  echo "\t-m|--mc : Deploy MC configuration"
+  echo "\t-s|--screen : Deploy screen configuration"
+  echo "\t-l|--less : Deploy less configuration"
+  echo "\t-i|--idea : Deploy idea configuration"
+  echo "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
+  echo "\t-h|--help : Show this usage"
 }
 
 # ================================== Main ==================================
@@ -30,21 +30,24 @@ INSTALL_LESS="NO"
 INSTALL_IDEA="NO"
 RELOAD="NO"
 
-while getopts "Agvamhrsli" option; do
-  case ${option} in
-    A) INSTALL_ALL="YES";;
-    a) INSTALL_ALL="NO"; INSTALL_ALIASES="YES";;
-    m) INSTALL_ALL="NO"; INSTALL_MC="YES";;
-    v) INSTALL_ALL="NO"; INSTALL_VIM="YES";;
-    g) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
-    s) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
-    l) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
-    i) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
-    r) RELOAD="YES";;
-    h) usage; exit 0;;
-    *) usage; exit 1;;
-  esac
+POSITIONAL=();
+while [[ $# -gt 0 ]]; do
+    case ${1} in
+        -A|--all) INSTALL_ALL="YES";;
+        -a|--alias) INSTALL_ALL="NO"; INSTALL_ALIASES="YES";;
+        -m|--mc) INSTALL_ALL="NO"; INSTALL_MC="YES";;
+        -v|--vim) INSTALL_ALL="NO"; INSTALL_VIM="YES";;
+        -g|--git) INSTALL_ALL="NO"; INSTALL_GIT="YES";;
+        -s|--screen) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
+        -l|--less) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
+        -i|--idea) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
+        -r|--reload) RELOAD="YES";;
+        -h|--help) usage; exit 0;;
+        *) usage; exit 1;;
+    esac
+    shift
 done
+set -- "${POSITIONAL[@]}"
 
 if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_ALIASES} == "YES" ]]; then
   echo "Deploy aliases..."
