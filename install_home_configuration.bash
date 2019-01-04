@@ -4,18 +4,18 @@ set -e
 
 usage() {
   echo "./install_home_configuration.sh: "
-  echo "\tDeploy the configuration files to the home directly."
+  echo -e "\tDeploy the configuration files to the home directly."
   echo "Parameters: "
-  echo "\t-A|--all : Deploy everything (default mode)"
-  echo "\t-a|--alias : Deploy aliases configuration files"
-  echo "\t-g|--git : Deploy git configuration files"
-  echo "\t-v|--vim : Deploy vim configuration files"
-  echo "\t-m|--mc : Deploy MC configuration"
-  echo "\t-s|--screen : Deploy screen configuration"
-  echo "\t-l|--less : Deploy less configuration"
-  echo "\t-i|--idea : Deploy idea configuration"
-  echo "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
-  echo "\t-h|--help : Show this usage"
+  echo -e "\t-A|--all : Deploy everything (default mode)"
+  echo -e "\t-a|--alias : Deploy aliases configuration files"
+  echo -e "\t-g|--git : Deploy git configuration files"
+  echo -e "\t-v|--vim : Deploy vim configuration files"
+  echo -e "\t-m|--mc : Deploy MC configuration"
+  echo -e "\t-s|--screen : Deploy screen configuration"
+  echo -e "\t-l|--less : Deploy less configuration"
+  echo -e "\t-i|--idea : Deploy idea configuration"
+  echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
+  echo -e "\t-h|--help : Show this usage"
 }
 
 # ================================== Main ==================================
