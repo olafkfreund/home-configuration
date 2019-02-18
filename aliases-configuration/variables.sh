@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Color
 color_reset='\033[0m'
@@ -11,8 +11,21 @@ color_purple='\033[0;35m'
 color_cyan='\033[0;36m'
 color_white='\033[0;37m'
 
+# Used to compute how long the current command lasts
+function command_start {
+  command_start=${command_start:-${SECONDS}}
+}
+
+function command_stop {
+  command_time=$((SECONDS - command_start))
+  unset command_start
+}
+
+trap 'command_start' DEBUG
+PROMPT_COMMAND=command_stop
+
 # Define PS1
-export PS1="\\[$color_green\\][\\[$color_cyan\\]\$?\\[$color_green\\]]\\[$color_green\\][\\[$color_red\\]\t\\[$color_green\\]][\\[$color_yellow\\]\u\\[$color_green\\]@\\[$color_cyan\\]\h\\[$color_green\\]:\\[$color_blue\\]\w\\[$color_green\\]]\\[$color_reset\\]\\[$color_green\\]\$(type get_git_current_branch > /dev/null 2>&1 && get_git_current_branch) \$(type screen_get_session_name > /dev/null 2>&1 && screen_get_session_name)\\[$color_reset\\]\n $ "
+export PS1="\\[$color_green\\][\\[$color_cyan\\]\$?\\[$color_green\\]]\\[$color_green\\][\\[$color_red\\]\t\\[$color_green\\]]\\[$color_green\\][\\[$color_purple\\]\${command_time:-?}\\[$color_green\\]][\\[$color_yellow\\]\u\\[$color_green\\]@\\[$color_cyan\\]\h\\[$color_green\\]:\\[$color_blue\\]\w\\[$color_green\\]]\\[$color_reset\\]\\[$color_green\\]\$(type get_git_current_branch > /dev/null 2>&1 && get_git_current_branch) \$(type screen_get_session_name > /dev/null 2>&1 && screen_get_session_name)\\[$color_reset\\]\n $ "
 
 # Auto correct cd command line
 shopt -s cdspell
