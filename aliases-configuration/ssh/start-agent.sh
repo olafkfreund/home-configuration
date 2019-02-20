@@ -10,9 +10,9 @@ start_agent() {
 SSH_ENV="$HOME/.ssh/ssh_agent_data"
 
 # Source SSH settings, if needed
-if [ -f "${SSH_ENV}" ]; then
+if [[ -f "${SSH_ENV}" ]]; then
     source "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    ps -ef | grep ssh-agent$ > /dev/null || {
         start_agent;
     }
 else

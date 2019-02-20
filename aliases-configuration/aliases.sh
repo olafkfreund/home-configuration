@@ -3,7 +3,6 @@
 # One alias to use them all
 alias sudoa='sudo '
 # Seems useless? If the last character of the alias value is a blank, then the next command word following the alias is also checked for alias expansion.
-# You're welcome.
 
 # ls
 alias ll="ls -alh";
@@ -58,7 +57,7 @@ alias reload="source ~/.aliases/load.sh"
 alias sshconfig="${EDITOR:-vim} ~/.ssh/config"
 
 ## Fetch hostname from sshconfig and create an alias to connect to them
-if [ -f ~/.ssh/config ]; then
+if [[ -f ~/.ssh/config ]]; then
   for name in $(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/' | tr ' ' '\n'); do
   	eval alias "$name=\"ssh $name\""
   done
