@@ -6,14 +6,14 @@ This project contains my personal home configuration files including aliases, gi
 
 The software used and configured in this repo are the following:
 
-# vim
-# screen
-# git
-# most
-# midnight commander (a.k.a. mc)
-# glances
-# intellij idea
-# less
+* vim
+* screen
+* git
+* most
+* midnight commander (a.k.a. mc)
+* glances
+* intellij idea
+* less
 
 # Usage
 
