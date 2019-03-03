@@ -25,9 +25,8 @@ trap 'command_start' DEBUG
 PROMPT_COMMAND='command_stop'
 
 # Define PSx
-export PS1="\\[$color_green\\][\\[$color_cyan\\]\$?\\[$color_green\\]]\\[$color_green\\][\\[$color_red\\]\D{%F %T}\\[$color_green\\]]\\[$color_green\\][\\[$color_purple\\]\${command_time:-?}\\[$color_green\\]][\\[$color_yellow\\]\u\\[$color_green\\]@\\[$color_cyan\\]\h\\[$color_green\\]:\\[$color_blue\\]\w\\[$color_green\\]]\\[$color_reset\\]\\[$color_green\\]\$(type get_git_current_branch > /dev/null 2>&1 && get_git_current_branch) \$(type screen_get_session_name > /dev/null 2>&1 && screen_get_session_name)\\[$color_reset\\]\n $ \[\e]2;$(whoami)@$(hostname) - $(pwd)\a\]"
+export PS1="\\[$color_green\\][\\[$color_cyan\\]\$?\\[$color_green\\]]\\[$color_green\\][\\[$color_red\\]\D{%F %T}\\[$color_green\\]]\\[$color_green\\][\\[$color_purple\\]\${command_time:-?}\\[$color_green\\]][\\[$color_yellow\\]\u\\[$color_green\\]@\\[$color_cyan\\]\h\\[$color_green\\]:\\[$color_blue\\]\w\\[$color_green\\]]\\[$color_reset\\]\\[$color_green\\]\$(type get_git_current_branch > /dev/null 2>&1 && get_git_current_branch) \$(type screen_get_session_name > /dev/null 2>&1 && screen_get_session_name)\\[$color_reset\\]\n \\[$color_cyan\\]$\\[$color_reset\\] \[\e]2;$(whoami)@$(hostname) - $(pwd)\a\]"
 export PS2="\\[$color_cyan\\]->\\[$color_reset\\] "
-
 
 # Auto correct cd command line
 shopt -s cdspell
