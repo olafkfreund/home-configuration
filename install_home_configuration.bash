@@ -60,12 +60,6 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_ALIASES} == "YES" ]]; then
   rm -rf ~/.aliases
   mkdir -p ~/.aliases
   cp -R aliases-configuration/* ~/.aliases/
-
-  if [[ ${RELOAD} == "YES" ]]; then
-    echo "Reloading..."
-    source ~/.aliases/load.sh
-  fi
-
   echo "Aliases deployed."
 fi
 
@@ -126,6 +120,11 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_COMPLETION} == "YES" ]]; then
   mkdir -p ~/.config/completion/
   cp completion/* ~/.config/completion/
   echo "completion config deployed."
+fi
+
+if [[ ${RELOAD} == "YES" ]]; then
+    echo "Reloading..."
+    source ~/.aliases/load.sh
 fi
 
 echo "Have fun !"
