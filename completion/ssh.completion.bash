@@ -6,6 +6,6 @@ if [[ -e ~/.ssh/known_hosts ]]; then
 fi
 
 ## SSH auto-completion based on entries in config.
-if [[ -e ~/.ssh/known_hosts ]]; then
+if [[ -e ~/.ssh/config ]]; then
   complete -W "$(grep -E ^Host ~/.ssh/config | grep -v '*' | grep -v '?' | sed 's/^Host \(.*\)/\1/' | tr ' ' '\n')" ssh
 fi
