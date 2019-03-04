@@ -33,3 +33,9 @@ source ~/.aliases/load.sh
 # Remove my configuration 
 
 TO DO
+
+# Sources
+
+To create my configuration, I used some already existing configs from other repos :
+
+* completion: [Bash-it/bash-it](https://github.com/Bash-it/bash-it "Bash-it/bash-it")
