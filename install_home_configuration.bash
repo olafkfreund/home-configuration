@@ -14,6 +14,7 @@ usage() {
   echo -e "\t-s|--screen : Deploy screen configuration"
   echo -e "\t-l|--less : Deploy less configuration"
   echo -e "\t-i|--idea : Deploy idea configuration"
+  echo -e "\t-c|--completion : Deploy the completion scripts"
   echo -e "\t--glances : Deploy glances configuration"
   echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
   echo -e "\t-h|--help : Show this usage"
@@ -30,6 +31,7 @@ INSTALL_SCREEN="NO"
 INSTALL_LESS="NO"
 INSTALL_IDEA="NO"
 INSTALL_GLANCES="NO"
+INSTALL_COMPLETION="NO"
 RELOAD="NO"
 
 POSITIONAL=();
@@ -43,6 +45,7 @@ while [[ $# -gt 0 ]]; do
         -s|--screen) INSTALL_ALL="NO"; INSTALL_SCREEN="YES";;
         -l|--less) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
         -i|--idea) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
+        -c|--completion) INSTALL_ALL="NO"; INSTALL_COMPLETION="YES";;
         --glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
         -r|--reload) RELOAD="YES";;
         -h|--help) usage; exit 0;;
@@ -115,6 +118,14 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_GLANCES} == "YES" ]]; then
   mkdir -p ~/.config/glances/
   cp glances-configuration/glances.conf ~/.config/glances/
   echo "glances config deployed."
+fi
+
+if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_COMPLETION} == "YES" ]]; then
+  echo "Deploy completion config..."
+  rm -rf ~/.config/completion/
+  mkdir -p ~/.config/completion/
+  cp completion/* ~/.config/completion/
+  echo "completion config deployed."
 fi
 
 echo "Have fun !"

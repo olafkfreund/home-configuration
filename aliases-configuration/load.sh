@@ -10,3 +10,5 @@ source "$ALIAS_FOLDER/ssh/start-agent.sh"
 
 source "$ALIAS_FOLDER/aliases.sh"
 source "$ALIAS_FOLDER/variables.sh"
+
+source ~/.config/completion/*.completion.bash
