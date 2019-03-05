@@ -16,6 +16,7 @@ alias du="du -h"
 
 # history
 alias hi="history | tail -20"
+alias hg="history | grep"
 
 # cd
 alias ..='cd ../'
