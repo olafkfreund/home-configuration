@@ -15,7 +15,7 @@ usage() {
   echo -e "\t-l|--less : Deploy less configuration"
   echo -e "\t-i|--idea : Deploy idea configuration"
   echo -e "\t-c|--completion : Deploy the completion scripts"
-  echo -e "\t--glances : Deploy glances configuration"
+  echo -e "\t-G|--glances : Deploy glances configuration"
   echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
   echo -e "\t-h|--help : Show this usage"
 }
@@ -46,7 +46,7 @@ while [[ $# -gt 0 ]]; do
         -l|--less) INSTALL_ALL="NO"; INSTALL_LESS="YES";;
         -i|--idea) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
         -c|--completion) INSTALL_ALL="NO"; INSTALL_COMPLETION="YES";;
-        --glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
+        -G|--glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
         -r|--reload) RELOAD="YES";;
         -h|--help) usage; exit 0;;
         *) usage; exit 1;;
