@@ -11,4 +11,6 @@ source "$ALIAS_FOLDER/ssh/start-agent.sh"
 source "$ALIAS_FOLDER/aliases.sh"
 source "$ALIAS_FOLDER/variables.sh"
 
-source ~/.config/completion/*.completion.bash
+for file in $(ls ~/.config/completion/); do
+  source ~/.config/completion/$file
+done
