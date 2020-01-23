@@ -16,6 +16,7 @@ usage() {
   echo -e "\t-i|--idea : Deploy idea configuration"
   echo -e "\t-c|--completion : Deploy the completion scripts"
   echo -e "\t-G|--glances : Deploy glances configuration"
+  echo -e "\t-t|--tmux : Deploy tmux configuration"
   echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
   echo -e "\t-h|--help : Show this usage"
 }
@@ -32,6 +33,7 @@ INSTALL_LESS="NO"
 INSTALL_IDEA="NO"
 INSTALL_GLANCES="NO"
 INSTALL_COMPLETION="NO"
+INSTALL_TMUX="NO"
 RELOAD="NO"
 
 POSITIONAL=();
@@ -47,6 +49,7 @@ while [[ $# -gt 0 ]]; do
         -i|--idea) INSTALL_ALL="NO"; INSTALL_IDEA="YES";;
         -c|--completion) INSTALL_ALL="NO"; INSTALL_COMPLETION="YES";;
         -G|--glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
+        -t|--tmux) INSTALL_ALL="NO"; INSTALL_TMUX="YES";;
         -r|--reload) RELOAD="YES";;
         -h|--help) usage; exit 0;;
         *) usage; exit 1;;
@@ -120,6 +123,13 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_COMPLETION} == "YES" ]]; then
   mkdir -p ~/.config/completion/
   cp completion/* ~/.config/completion/
   echo "completion config deployed."
+fi
+
+if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_TMUX} == "YES" ]]; then
+  echo "Deploy tmux config..."
+  rm -f ~/.tmux.conf
+  cp tmux-configuration/tmux.conf ~/.tmux.conf
+  echo "tmux config deployed."
 fi
 
 if [[ ${RELOAD} == "YES" ]]; then
