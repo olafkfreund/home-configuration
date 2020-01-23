@@ -14,3 +14,9 @@ source "$ALIAS_FOLDER/variables.sh"
 for file in $(ls ~/.config/completion/); do
   source ~/.config/completion/$file
 done
+
+# Start tmux default session
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
