@@ -41,3 +41,4 @@ To create my configuration, I used some already existing configs from other repo
 
 * completion: [Bash-it/bash-it](https://github.com/Bash-it/bash-it "Bash-it/bash-it")
 * tmux configuration: [Marthym's blog](https://blog.ght1pc9kc.fr/2019/ma-configuration-tmux.html "Marthym's blog")
+* tmux theme: [https://gist.github.com/rajanand02/9407361](https://gist.github.com/rajanand02/9407361"https://gist.github.com/rajanand02/9407361")
