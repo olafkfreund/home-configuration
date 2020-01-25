@@ -17,6 +17,7 @@ usage() {
   echo -e "\t-c|--completion : Deploy the completion scripts"
   echo -e "\t-G|--glances : Deploy glances configuration"
   echo -e "\t-t|--tmux : Deploy tmux configuration"
+  echo -e "\t-b|--bashrc : Source the load.sh file in the bashrc if not already done yet"
   echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
   echo -e "\t-h|--help : Show this usage"
 }
@@ -34,6 +35,7 @@ INSTALL_IDEA="NO"
 INSTALL_GLANCES="NO"
 INSTALL_COMPLETION="NO"
 INSTALL_TMUX="NO"
+ADD_BASHRC="NO"
 RELOAD="NO"
 
 POSITIONAL=();
@@ -50,6 +52,7 @@ while [[ $# -gt 0 ]]; do
         -c|--completion) INSTALL_ALL="NO"; INSTALL_COMPLETION="YES";;
         -G|--glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
         -t|--tmux) INSTALL_ALL="NO"; INSTALL_TMUX="YES";;
+        -b|--bashrc) ADD_BASHRC="YES";;
         -r|--reload) RELOAD="YES";;
         -h|--help) usage; exit 0;;
         *) usage; exit 1;;
@@ -132,9 +135,16 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_TMUX} == "YES" ]]; then
   echo "tmux config deployed."
 fi
 
+if [[ ${ADD_BASHRC} == "YES" ]]; then
+    echo "Source the load file in the bashrc file..."
+    grep 'source ~/.aliases/load.sh' ~/.bashrc || echo -e "source ~/.aliases/load.sh\n" >> ~/.bashrc
+    echo "done."
+fi
+
 if [[ ${RELOAD} == "YES" ]]; then
     echo "Reloading..."
     source ~/.aliases/load.sh
+    echo "reload."
 fi
 
 echo "Have fun !"
