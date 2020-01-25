@@ -31,10 +31,6 @@ If you want the aliases and variables to be loaded automatically, add this to yo
 source ~/.aliases/load.sh
 ```
 
-# Remove my configuration
-
-TO DO
-
 # Sources
 
 To create my configuration, I used some already existing configs from other repos :
