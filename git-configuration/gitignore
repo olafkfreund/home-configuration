@@ -1,4 +1,4 @@
-# OS generated files 
+# OS generated files
 .DS_Store*
 ehthumbs.db
 Icon?
@@ -12,3 +12,7 @@ Thumbs.db
 # Intellij idea files
 *.iml
 .idea
+
+# Python files
+## virtual env files
+venv/
