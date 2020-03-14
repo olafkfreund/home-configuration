@@ -17,6 +17,7 @@ usage() {
   echo -e "\t-c|--completion : Deploy the completion scripts"
   echo -e "\t-G|--glances : Deploy glances configuration"
   echo -e "\t-t|--tmux : Deploy tmux configuration"
+  echo -e "\t-B|--bat : Deploy bat configuration"
   echo -e "\t-b|--bashrc : Source the load.sh file in the bashrc if not already done yet"
   echo -e "\t-r|--reload : Reload the aliases after the deployment (if sourced)"
   echo -e "\t-h|--help : Show this usage"
@@ -35,6 +36,7 @@ INSTALL_IDEA="NO"
 INSTALL_GLANCES="NO"
 INSTALL_COMPLETION="NO"
 INSTALL_TMUX="NO"
+INSTALL_BAT="NO"
 ADD_BASHRC="NO"
 RELOAD="NO"
 
@@ -52,6 +54,7 @@ while [[ $# -gt 0 ]]; do
         -c|--completion) INSTALL_ALL="NO"; INSTALL_COMPLETION="YES";;
         -G|--glances) INSTALL_ALL="NO"; INSTALL_GLANCES="YES";;
         -t|--tmux) INSTALL_ALL="NO"; INSTALL_TMUX="YES";;
+        -B|--bat) INSTALL_ALL="NO"; INSTALL_BAT="YES";;
         -b|--bashrc) ADD_BASHRC="YES";;
         -r|--reload) RELOAD="YES";;
         -h|--help) usage; exit 0;;
@@ -133,6 +136,14 @@ if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_TMUX} == "YES" ]]; then
   rm -f ~/.tmux.conf
   cp tmux-configuration/tmux.conf ~/.tmux.conf
   echo "tmux config deployed."
+fi
+
+if [[ ${INSTALL_ALL} == "YES" ]] || [[ ${INSTALL_BAT} == "YES" ]]; then
+  echo "Deploy bat config..."
+  mkdir -p ~/.config/bat/
+  rm -f ~/.config/bat/config
+  cp bat-configuration/config ~/.config/bat/config
+  echo "bat config deployed."
 fi
 
 if [[ ${ADD_BASHRC} == "YES" ]]; then
